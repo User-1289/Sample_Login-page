@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>sample html page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login page</title>
+</head>
+<body>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyB2dc7G54nZg1H-tKUbxRtWmADEQxRJv10",
+  authDomain: "simple-login-page-736b4.firebaseapp.com",
+  databaseURL: "https://simple-login-page-736b4-default-rtdb.firebaseio.com",
+  projectId: "simple-login-page-736b4",
+  storageBucket: "simple-login-page-736b4.appspot.com",
+  messagingSenderId: "787439045671",
+  appId: "1:787439045671:web:7f597366a3893300fed202",
+  measurementId: "G-WTGQ0B68PM"
+};
+firebase.initializeApp(firebaseConfig)
+console.log(firebase)
+
+let database = firebase.firestore()
+/*let ref = firebase.ref('LoginInformation')
+let data = {
+name: 'test',
+password:'test12'
+}
+ref.push(data)*/
+database.collection("users").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+})
+</script>
+
+<input type="text" id="username"><br>
+<input type="text" id="password"><br>
+<button onclick="send()">Submit</button>
+</body>
+</html>
